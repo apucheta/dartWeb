@@ -9,6 +9,7 @@ export class CalculoComponent implements OnInit {
 
   monto: number=0;
   montoInterior: number = 0;
+  metros: number;
 
 
   constructor() { }
