@@ -69,7 +69,7 @@
   }
 
   .card svg.material-icons path {
-    fill: #888;
+    fill: rgb(2, 0, 109);
   }
 
   .card-container {

@@ -3,14 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CalculoComponent } from './pages/calculo/calculo.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { MarcasComponent } from './pages/marcas/marcas.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalculoComponent,
+    HomeComponent,
+    MarcasComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'calculo', component: CalculoComponent },
+      { path: 'marcas', component: MarcasComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
