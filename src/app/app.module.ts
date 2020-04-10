@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,8 @@ import { MarcasComponent } from './pages/marcas/marcas.component';
       { path: '', component: HomeComponent },
       { path: 'calculo', component: CalculoComponent },
       { path: 'marcas', component: MarcasComponent },
-    ])
+    ]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
