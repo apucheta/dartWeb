@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+:root {
+    --disenart-red-color: #B60E0E;
+	--disenart-red-light-color: #D82020;
+	--disenart-red-lighter-color: #F72F2F;
+	--disenart-black-color: #262626;
+	--disenart-white-color: #FFFFFF;
+}

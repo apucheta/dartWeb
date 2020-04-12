@@ -1,0 +1,20 @@
+<div class="menu-wrap">
+	<input type="checkbox" class="toggler" [(ngModel)]="isMenuOpen">
+	<div class="hamburger">
+		<div></div>
+	</div>
+	<div class="menu">
+		<div (click)="closeMenu()">
+			<div>
+				<ul>
+					<li><a href="#">Inicio</a></li>
+					<li><a href="#nosotros">Nosotros</a></li>
+					<li><a href="#">Servicios</a></li>
+					<li><a href="#">Nuestras casas</a></li>
+					<li><a [routerLink]="['/calculo']" routerLinkActive="router-link-active" >Calculá tu proyecto</a></li>
+					<li><a href="#">Contacto</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
