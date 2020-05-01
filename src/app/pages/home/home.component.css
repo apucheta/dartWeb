@@ -1,4 +1,9 @@
 /* Estilos del landing */
+.section-title {
+	font-family: 'GilroyBold', Tahoma, Geneva, Verdana, sans-serif;
+	color: #B60E0E;
+}
+
 .showcase {
 	/*background-color: rgb(247, 47, 47, .15);*/
 	background-color: rgba(246, 246, 246, 0.527);
@@ -54,11 +59,16 @@
 	justify-content: center;
 }
 
-.about-us h1 {
+.about-us h1,
+.card-title,
+.budget-section label, 
+.budget-section .input-group-text {
 	font-family: 'GilroyBold', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.about-us p {
+.about-us p,
+.card-body p,
+.budget-section ::placeholder {
 	font-family: 'Gilroy', Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -122,15 +132,46 @@
 	width: 100%;
 	min-height: 100vh;
 	background-color: #f1f1f1;
+}
+
+.services-section .services-section-container {
 	display: flex;
 }
 
-.services-section .row {
+.services-section .services-section-container .row {
 	margin: auto;
 }
 
 .btn-disenart {
 	background-color: #B60E0E;
 	color: #f1f1f1;
+	font-family: 'GilroyBold', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* Fin de los estilos sección: Servicios */ 
+
+/* Estilos para la sección: Calculá tu proyecto */
+.budget-section {
+	width: 100%;
+	min-height: 50vh;
+	background-color: #f1f1f1;
+}
+
+.budget-section .table th {
+	width: 250px;
+	text-align: center;
+}
+
+.budget-section .calculate-btn {
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+}
+/* Fin de los estilos para la sección: Calculá tu proyecto */
+
+/* Estilos para la sección: Contacto */
+.contact-section {
+	width: 100%;
+	min-height: 50vh;
+	background-color: #f1f1f1;
+}
+/* Fin de los estilos para la sección: Contacto */

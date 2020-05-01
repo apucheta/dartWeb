@@ -9,7 +9,7 @@
 	<section class="about-us-section" id="nosotros">
 		<div class="about-us">
 			<div class="inner-container">
-				<h1>Nosotros</h1>
+				<h1 class="section-title text-uppercase">Nosotros</h1>
 				<p>
 					Diseñart es una empresa que se dedica hace más de diez años a la construcción de viviendas.<br><br>
 					Buscamos que nuestros clientes sean partícipes en los diseños y proyectos que le brindan nuestros profesionales con asesoramiento permanente en cada etapa de la obra, 
@@ -21,58 +21,156 @@
 		</div>
 	</section>
 	<section class="services-section" id="servicios">
+		<div class="row mx-auto">
+			<div class="col-12 text-center text-uppercase mt-3">
+				<h2 class="section-title">Te ofrecemos</h2>
+			</div>
+		</div>
+		<div class="services-section-container">
+			<div class="row mx-auto p-3">
+				<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+					<div class="card h-100 shadow-lg">
+						<img class="card-img-top" src="assets/img/llaveEnMano.jpg" alt="Llave en mano">
+						<div class="card-body">
+							<div class="card-title font-weight-bold text-uppercase">
+								Llave en mano
+							</div>
+							<p>Contamos con precios especiales para construcciones mayores a los 250m2.</p>
+						</div>
+						<div class="card-footer bg-transparent text-center border-0">
+							<button class="btn btn-disenart">¿Qué incluye?</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+					<div class="card h-100 shadow-lg">
+						<img class="card-img-top" src="assets/img/obraGruesa.jpg" alt="Obra gruesa">
+						<div class="card-body">
+							<div class="card-title font-weight-bold text-uppercase">
+								Obra gruesa
+							</div>
+							<p>Comprende la estructura principal de la vivienda, desde los cimientos hasta la cubierta, con todos los servicios funcionando: luz, agua, calefacción y gas.</p>
+						</div>
+						<div class="card-footer bg-transparent text-center border-0">
+							<button class="btn btn-disenart">Nuestros materiales</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+					<div class="card h-100 shadow-lg">
+						<img class="card-img-top" src="assets/img/piscinas.jpg" alt="Piscinas">
+						<div class="card-body">
+							<div class="card-title font-weight-bold text-uppercase">
+								Piscinas
+							</div>
+							<p>Construimos piscinas completamente en hormigón H21 y armadura de hierro de alta resistencia, trabajamos con materiales de primera calidad y mano de obra especializada brindando una máxima vida útil.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+					<div class="card h-100 shadow-lg">
+						<img class="card-img-top" src="assets/img/disenoInteriores.jpg" alt="Interiores">
+						<div class="card-body">
+							<div class="card-title font-weight-bold text-uppercase">
+								Diseño de interiores
+							</div>
+							<p>
+								Diseñamos una correcta utilización del espacio para que funcione y haga realidad los deseos de sus habitantes. Asesoramos en decoración y te ayudamos a encontrar el equilibrio o las sensaciones deseadas en cada ambiente.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="budget-section" id="calculaTuProyecto">
+		<div class="row mx-auto">
+			<div class="col-12 text-center text-uppercase mt-3">
+				<h2 class="section-title">Calculá tu proyecto</h2>
+			</div>
+		</div>
+		<form [formGroup]="presupuestoFormGroup">
+			<div class="row mx-auto p-3">
+				<div class="col-lg-2 col-md-4 col-sm-12">
+					<div class="form-group">
+						<label for="test">Cubierta</label>
+						<div class="input-group mb-3">
+							<input type="number" class="form-control" id="txt-cubierta" placeholder="Superficie" aria-label="Superficie en metros cuadrados" aria-describedby="txt-cubierta-append" formControlName="cubierta">
+							<div class="input-group-append">
+							  	<span class="input-group-text" id="txt-cubierta-append">m<sup>2</sup></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-12">
+					<div class="form-group">
+						<label for="test">Semicubierta</label>
+						<div class="input-group mb-3">
+							<input type="number" class="form-control" id="txt-semicubierta" placeholder="Superficie" aria-label="Superficie en metros cuadrados" aria-describedby="txt-semicubierta-append" formControlName="semiCubierta">
+							<div class="input-group-append">
+							  	<span class="input-group-text" id="txt-semicubierta-append">m<sup>2</sup></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-12">
+					<div class="form-group">
+						<label for="test">Descubierta</label>
+						<div class="input-group mb-3">
+							<input type="number" class="form-control" id="txt-descubierta" placeholder="Superficie" aria-label="Superficie en metros cuadrados" aria-describedby="txt-descubierta-append" formControlName="descubierta">
+							<div class="input-group-append">
+							  	<span class="input-group-text" id="txt-descubierta-append">m<sup>2</sup></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-4 col-sm-12">
+					<div class="form-group">
+						<label for="test">Doble altura</label>
+						<div class="input-group mb-3">
+							<input type="number" class="form-control" id="txt-doble-altura" placeholder="Superficie" aria-label="Superficie en metros cuadrados" aria-describedby="txt-doble-altura-append" formControlName="dobleAltura">
+							<div class="input-group-append">
+							  	<span class="input-group-text" id="txt-doble-altura-append">m<sup>2</sup></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-12">
+					<div class="form-group">
+						<label for="test">Piscina</label>
+						<div class="input-group mb-3">
+							<input type="number" class="form-control" id="txt-piscina" placeholder="Superficie" aria-label="Superficie en metros cuadrados" aria-describedby="txt-piscina-append" formControlName="piscina">
+							<div class="input-group-append">
+							  	<span class="input-group-text" id="txt-piscina-append">m<sup>2</sup></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-12 calculate-btn">
+					<button class="btn btn-secondary mr-1" type="reset" (click)="limpiarPresupuesto()">Limpiar</button>
+					<button class="btn btn-disenart" (click)="calcularPresupuesto()" type="submit">Calcular</button>
+				</div>
+			</div>
+		</form>
+		<div class="row mx-auto">
+			<div class="col-12 text-center text-uppercase mt-1">
+				<h4 class="section-title">Total</h4>
+				<h5>{{ presupuestoTotal | currency : 'USD' : 'symbol' : '1.2-2' : 'es-Ar' }}</h5>
+			</div>
+		</div>
+	</section>
+	<section class="contact-section" id="contacto">
+		<div class="row mx-auto">
+			<div class="col-12 text-center text-uppercase">
+				-- Título --
+			</div>
+		</div>
 		<div class="row mx-auto p-3">
-			<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
-				<div class="card h-100 shadow-lg">
-					<img class="card-img-top" src="assets/img/llaveEnMano.jpg" alt="Llave en mano">
-					<div class="card-body">
-						<div class="card-title font-weight-bold text-uppercase">
-							Llave en mano
-						</div>
-						<p>Contamos con precios especiales para construcciones mayores a los 250m2.</p>
-					</div>
-					<div class="card-footer bg-transparent text-center border-0">
-						<button class="btn btn-disenart">¿Qué incluye?</button>
-					</div>
-				</div>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				-- Datos --
 			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
-				<div class="card h-100 shadow-lg">
-					<img class="card-img-top" src="assets/img/obraGruesa.jpg" alt="Obra gruesa">
-					<div class="card-body">
-						<div class="card-title font-weight-bold text-uppercase">
-							Obra gruesa
-						</div>
-						<p>Comprende la estructura principal de la vivienda, desde los cimientos hasta la cubierta, con todos los servicios funcionando: luz, agua, calefacción y gas.</p>
-					</div>
-					<div class="card-footer bg-transparent text-center border-0">
-						<button class="btn btn-disenart">Nuestros materiales</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
-				<div class="card h-100 shadow-lg">
-					<img class="card-img-top" src="assets/img/piscinas.jpg" alt="Piscinas">
-					<div class="card-body">
-						<div class="card-title font-weight-bold text-uppercase">
-							Piscinas
-						</div>
-						<p>Construimos piscinas completamente en hormigón H21 y armadura de hierro de alta resistencia, trabajamos con materiales de primera calidad y mano de obra especializada brindando una máxima vida útil.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
-				<div class="card h-100 shadow-lg">
-					<img class="card-img-top" src="assets/img/disenoInteriores.jpg" alt="Interiores">
-					<div class="card-body">
-						<div class="card-title font-weight-bold text-uppercase">
-							Diseño de interiores
-						</div>
-						<div class="card-content">
-							Diseñamos una correcta utilización del espacio para que funcione y haga realidad los deseos de sus habitantes. Asesoramos en decoración y te ayudamos a encontrar el equilibrio o las sensaciones deseadas en cada ambiente.
-						</div>
-					</div>
-				</div>
+			<div class="col-6 col-md-6 col-sm-12">
+				-- Mapa --
 			</div>
 		</div>
 	</section>
