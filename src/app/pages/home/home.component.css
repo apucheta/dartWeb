@@ -116,3 +116,22 @@
 	}
 }
 /* Fin de los estilos sección: Nosotros */
+
+/* Estilos sección: Servicios */ 
+.services-section {
+	width: 100%;
+	min-height: 100vh;
+	background-color: #f1f1f1;
+	display: flex;
+}
+
+.services-section .row {
+	margin-right: 0;
+	margin: auto;
+}
+
+.btn-disenart {
+	background-color: #B60E0E;
+	color: #f1f1f1;
+}
+/* Fin de los estilos sección: Servicios */ 
