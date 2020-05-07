@@ -10,19 +10,19 @@ export class CalculoComponent implements OnInit {
   montoTotal: number=0;
   montoInterior: number = 0;
   montoSemicubierta: number = 0;
-  montoDescubierta: number = 0;
+  //montoDescubierta: number = 0;
   montoAltura: number = 0;
   montoPiscina: number = 0;
 
-  valorInterior: number = 100;
-  valorSemiCubierta:number = 100;
-  valorPiscina: number = 250;
+  valorInterior: number = 800;
+  valorSemiCubierta:number = 425;
+  valorPiscina: number = 200;
   valorAltura: number = 300;
-  valorDescubierta: number = 355;
+  //valorDescubierta: number = 355;
 
   public metrosInterior: number;
   public metrosSemicubierta: number;
-  public metrosDescubierta: number;
+  //public metrosDescubierta: number;
   public metrosDAltura: number;
   public metrosPiscina: number;
 
@@ -41,10 +41,6 @@ export class CalculoComponent implements OnInit {
       case 'semicubierta':
         this.montoSemicubierta += metros*this.valorSemiCubierta;
         this.montoTotal += this.montoSemicubierta;
-        break;
-      case 'descubierta':
-        this.montoDescubierta += metros*this.valorDescubierta;
-        this.montoTotal += this.montoDescubierta;
         break;
       case 'dAltura':
         this.montoAltura += metros*this.valorAltura;
