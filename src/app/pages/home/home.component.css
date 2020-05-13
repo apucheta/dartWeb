@@ -2,11 +2,12 @@
 .section-title {
 	font-family: 'GilroyBold', Tahoma, Geneva, Verdana, sans-serif;
 	color: #B60E0E;
+	text-shadow: rgba(51, 51, 51, .15) 1.5px 1.5px;
 }
 
 .showcase {
 	/*background-color: rgb(247, 47, 47, .15);*/
-	background-color: rgba(246, 246, 246, 0.527);
+	background-color: rgba(246, 246, 246, 0.7);
 	color: var(--disenart-white-color);
 	height: 100vh;
 	position: relative;
@@ -34,8 +35,9 @@
 }
 
 .showcase-content p {
-	font-size: 1.3rem;
-	color: #262626;
+	font-size: 1.5rem;
+	color: #cc3333;
+	text-shadow: rgba(51, 51, 51, .3) 1.5px 1.5px;
 }
 /* Fin de estilos del landing */
 
@@ -65,6 +67,7 @@
 .budget-section .input-group-text,
 .contact-label {
 	font-family: 'GilroyBold', Tahoma, Geneva, Verdana, sans-serif;
+	text-shadow: rgba(51, 51, 51, .15) 1.5px 1.5px;
 }
 
 .about-us p,
