@@ -180,3 +180,11 @@
 	background-color: #f1f1f1;
 }
 /* Fin de los estilos para la sección: Contacto */
+
+/* Estilos para el footer */
+.footer-section {
+	width: 100%;
+	min-height: 5vh;
+	background-color: #f1f1f1;
+}
+/* Fin de los estilos para el footer */

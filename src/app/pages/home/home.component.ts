@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
 	public title = 'Dart | Diseño y arquitectura';
 	public presupuestoFormGroup: FormGroup;
 	public presupuestoTotal: number = 0;
+	public currentYear: number = new Date().getFullYear();
 	
-
 	constructor(
 		private formBuilder: FormBuilder
 	) { }
