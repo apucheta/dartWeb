@@ -188,3 +188,11 @@
 	background-color: #f1f1f1;
 }
 /* Fin de los estilos para el footer */
+
+/* Estilos para la sección de la galería */
+.gallery-section {
+	width: 100%;
+	min-height: 100vh;
+	background-color: #f1f1f1;
+}
+/* Fin de los estilos para la sección de la galería */

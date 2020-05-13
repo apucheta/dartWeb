@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { LightboxConfig, Lightbox } from 'ngx-lightbox';
 
 @Component({
 	selector: 'app-home',
@@ -17,13 +18,40 @@ export class HomeComponent implements OnInit {
 	public presupuestoFormGroup: FormGroup;
 	public presupuestoTotal: number = 0;
 	public currentYear: number = new Date().getFullYear();
+	public galeria: Array<any> = [];
 	
 	constructor(
-		private formBuilder: FormBuilder
+		private formBuilder: FormBuilder,
+		private lightboxService: Lightbox,
+		private galleryConfig: LightboxConfig
 	) { }
 
 	ngOnInit() {
 		this.initPresupuestoForm();
+		this.initGaleria();
+	}
+
+	initGaleria() {
+		this.galleryConfig.centerVertically = true;
+		this.galleryConfig.disableScrolling = true;
+		this.galleryConfig.alwaysShowNavOnTouchDevices = true;
+
+		for (let index = 1; index < 7; index++) {
+			let imagePath = "/assets/img/galeria/galeria_" + index + ".jpg";
+			let imageCaption = "&copy; Diseñart Constructora.";
+			this.galeria.push({
+				src: imagePath,
+         		caption: imageCaption
+			});
+		};
+	}
+
+	abrirFoto(fotoIndex: number) {
+		this.lightboxService.open(this.galeria, fotoIndex);
+	}
+
+	close() {
+		this.lightboxService.close();
 	}
 
 	initPresupuestoForm() {

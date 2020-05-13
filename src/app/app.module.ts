@@ -12,6 +12,7 @@ import { registerLocaleData } from "@angular/common";
 import localeEs from "@angular/common/locales/es-AR";
 import { HeaderComponent } from './pages/componentes/header/header.component';
 import { FooterComponent } from './pages/componentes/footer/footer.component';
+import { LightboxModule } from 'ngx-lightbox';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -34,7 +35,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		]),
 		FormsModule,
 		ReactiveFormsModule,
-		NgbModule
+		NgbModule,
+		LightboxModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
