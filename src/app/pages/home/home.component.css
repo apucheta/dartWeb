@@ -62,13 +62,15 @@
 .about-us h1,
 .card-title,
 .budget-section label, 
-.budget-section .input-group-text {
+.budget-section .input-group-text,
+.contact-label {
 	font-family: 'GilroyBold', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .about-us p,
 .card-body p,
-.budget-section ::placeholder {
+.budget-section ::placeholder,
+.contact-info {
 	font-family: 'Gilroy', Verdana, Geneva, Tahoma, sans-serif;
 }
 
