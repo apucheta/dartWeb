@@ -16,7 +16,7 @@
             <td>Interior de la vivienda</td>
 
             <td>
-                <input type="metros" placeholder="Ingrese la cantidad de metros" [(ngModel)]='metrosInterior' (change)="calcular(metrosInterior, 'interior')">
+                <input type="number" placeholder="Ingrese la cantidad de metros" [(ngModel)]='metrosInterior' (change)="calcular(metrosInterior, 'interior')">
             </td>
             <td>{{montoInterior}}</td>
           
@@ -25,7 +25,7 @@
         <tr>
             <td>Semicubierta</td>
             <td>Galeria, Porche</td>
-            <td><input type="metros" placeholder="Ingrese la cantidad de metros" [(ngModel)]= 'metrosSemicubierta' (change)="calcular(metrosSemicubierta, 'semicubierta')"></td>
+            <td><input type="number" placeholder="Ingrese la cantidad de metros" [(ngModel)]= 'metrosSemicubierta' (change)="calcular(metrosSemicubierta, 'semicubierta')"></td>
             <td>{{montoSemicubierta}}</td>
         </tr>
         <!--<tr>
@@ -37,13 +37,13 @@
         <tr>
             <td>Doble Altura</td>
             <td>En interior</td>
-            <td><input type="metros" placeholder="Ingrese la cantidad de metros" [(ngModel)]='metrosDAltura' (change)="calcular(metrosDAltura, 'dAltura')"></td>
+            <td><input type="number" placeholder="Ingrese la cantidad de metros" [(ngModel)]='metrosDAltura' (change)="calcular(metrosDAltura, 'dAltura')"></td>
             <td>{{montoAltura}}</td>
         </tr>
         <tr>
             <td>Piscina</td>
             <td>        </td>
-            <td><input type="metros" placeholder="Ingrese la cantidad de metros" [(ngModel)]='metrosPiscina' (change)="calcular(metrosPiscina, 'piscina')"></td>
+            <td><input type="number" placeholder="Ingrese la cantidad de metros" [(ngModel)]='metrosPiscina' (change)="calcular(metrosPiscina, 'piscina')"></td>
             <td>{{montoPiscina}}</td>
         </tr>
         <tr>
