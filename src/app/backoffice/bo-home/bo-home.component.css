@@ -4,6 +4,7 @@ ng-sidebar-container {
 
 .list-group-item {
     color: #262626;
+    cursor: pointer;
 }
 
 .router-link-active {
