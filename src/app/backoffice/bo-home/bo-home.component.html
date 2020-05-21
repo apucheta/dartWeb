@@ -1,0 +1,36 @@
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container>
+	<ng-sidebar [opened]="opened" [mode]="'push'" [sidebarClass]="'sidebarNav'">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 text-center mt-3">
+					<img src="assets/img/logo_2.png" alt="Diseñart Logo" width="50%">
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid w-100 pr-0 mt-3">
+			<div class="row mr-0">
+				<div class="col-12 pl-0 pr-0">
+					<div class="list-group">
+						<a [routerLink]="['/admin/usuarios']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action">
+							<i class="fa fa-user mr-2"></i>
+							Usuarios
+						</a>
+						<a [routerLink]="['/admin/contenidos']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action">
+							<i class="fa fa-file-text mr-2"></i>
+							Contenidos
+						</a>
+						<a [routerLink]="['/admin/proyectos']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action">
+							<i class="fa fa-home mr-2"></i>
+							Proyectos
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ng-sidebar>
+
+	<div ng-sidebar-content>
+		<router-outlet></router-outlet>
+	</div>
+</ng-sidebar-container>

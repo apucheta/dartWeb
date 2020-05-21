@@ -13,6 +13,12 @@ import localeEs from "@angular/common/locales/es-AR";
 import { HeaderComponent } from './pages/componentes/header/header.component';
 import { FooterComponent } from './pages/componentes/footer/footer.component';
 import { LightboxModule } from 'ngx-lightbox';
+import { BoHomeComponent } from './backoffice/bo-home/bo-home.component';
+import { SidebarModule } from "ng-sidebar";
+import { BoUsersComponent } from './backoffice/bo-users/bo-users.component';
+import { BoContenidosComponent } from './backoffice/bo-contenidos/bo-contenidos.component';
+import { BoProyectosComponent } from './backoffice/bo-proyectos/bo-proyectos.component';
+import { BoHeaderComponent } from './backoffice/bo-header/bo-header.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -23,7 +29,12 @@ registerLocaleData(localeEs, 'es-Ar');
 		HomeComponent,
 		MarcasComponent,
 		HeaderComponent,
-		FooterComponent
+		FooterComponent,
+		BoHomeComponent,
+		BoUsersComponent,
+		BoContenidosComponent,
+		BoProyectosComponent,
+		BoHeaderComponent
 	],
 	imports: [
 		BrowserModule,
@@ -36,7 +47,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		FormsModule,
 		ReactiveFormsModule,
 		NgbModule,
-		LightboxModule
+		LightboxModule,
+		SidebarModule.forRoot()
 	],
 	providers: [],
 	bootstrap: [AppComponent]
