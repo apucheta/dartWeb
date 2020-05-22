@@ -15,7 +15,6 @@ export class BoHomeComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.router.navigateByUrl("admin/usuarios");
 	}
 
 	toggleSidebar() {

@@ -26,6 +26,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { ContenidoService } from './services/firebase/contenido.service';
 import { ProyectosService } from './services/firebase/proyectos.service';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -59,7 +60,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		AngularFireModule.initializeApp(environment.firebaseConfig, 'dart'),
 		AngularFirestoreModule,
 		AngularFireAuthModule,
-		AngularFireStorageModule 
+		AngularFireStorageModule,
+		NgxDatatableModule
 	],
 	providers: [
 		ContenidoService,

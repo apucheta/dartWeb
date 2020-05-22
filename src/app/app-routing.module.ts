@@ -14,7 +14,9 @@ const routes: Routes = [
 			{ 'path': 'contenidos', component: BoContenidosComponent },
 			{ 'path': 'proyectos', component: BoProyectosComponent }
 		]
-	}
+	},
+	{ path: '', pathMatch: 'full', component: BoHomeComponent},
+  	{ path: '**', pathMatch: 'full', component: BoHomeComponent},
 ];
 
 @NgModule({
