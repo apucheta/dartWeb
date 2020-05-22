@@ -19,6 +19,7 @@ import { BoUsersComponent } from './backoffice/bo-users/bo-users.component';
 import { BoContenidosComponent } from './backoffice/bo-contenidos/bo-contenidos.component';
 import { BoProyectosComponent } from './backoffice/bo-proyectos/bo-proyectos.component';
 import { BoHeaderComponent } from './backoffice/bo-header/bo-header.component';
+import { LoginComponent } from './backoffice/login/login.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -34,7 +35,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		BoUsersComponent,
 		BoContenidosComponent,
 		BoProyectosComponent,
-		BoHeaderComponent
+		BoHeaderComponent,
+		LoginComponent
 	],
 	imports: [
 		BrowserModule,
