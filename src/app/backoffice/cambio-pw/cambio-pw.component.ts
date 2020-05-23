@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cambio-pw',
@@ -41,7 +42,11 @@ export class CambioPwComponent implements OnInit {
             this.router.navigateByUrl('/login');
           }).catch(function(error) {
             // An error happened.
-            alert('No existe un correo asociado a esta pagina');
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'El correo no esta asociado.'
+            })
           });
         }
   }

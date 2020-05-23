@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import {environment} from 'src/environments/environment';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import Swal from 'sweetalert2';
 
 firebase.initializeApp(environment.firebaseConfig)
 
@@ -44,7 +45,11 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/admin');
       })       
       .catch(function(error) {
-        alert('Usuario/Contraseña equivocados.')
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Usuario/contraseña invalidos'
+        })
       });
     }
   }
