@@ -19,9 +19,6 @@ import { BoUsersComponent } from './backoffice/bo-users/bo-users.component';
 import { BoContenidosComponent } from './backoffice/bo-contenidos/bo-contenidos.component';
 import { BoProyectosComponent } from './backoffice/bo-proyectos/bo-proyectos.component';
 import { BoHeaderComponent } from './backoffice/bo-header/bo-header.component';
-<<<<<<< HEAD
-import { LoginComponent } from './backoffice/login/login.component';
-=======
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -30,8 +27,10 @@ import { environment } from 'src/environments/environment';
 import { ContenidoService } from './services/firebase/contenido.service';
 import { ProyectosService } from './services/firebase/proyectos.service';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
->>>>>>> 383c6991bd2bdfe04a1ea02c1ffe478d23a37465
-
+import { LoginComponent } from './backoffice/login/login.component';
+import { MaterialModule } from "../app/material.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
 registerLocaleData(localeEs, 'es-Ar');
 
 @NgModule({
@@ -66,7 +65,10 @@ registerLocaleData(localeEs, 'es-Ar');
 		AngularFirestoreModule,
 		AngularFireAuthModule,
 		AngularFireStorageModule,
-		NgxDatatableModule
+		NgxDatatableModule, 
+		MaterialModule,
+		BrowserAnimationsModule,
+		MatTabsModule
 	],
 	providers: [
 		ContenidoService,
