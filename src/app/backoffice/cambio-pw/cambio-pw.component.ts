@@ -38,9 +38,10 @@ export class CambioPwComponent implements OnInit {
     if ((this.cambioForm.get('cambio_usuario').value != '')) {
           auth.sendPasswordResetEmail(this.cambioForm.get('cambio_usuario').value).then(function() {
             // Email sent.
-            console.log('Email Sent');
+            this.router.navigateByUrl('/login');
           }).catch(function(error) {
             // An error happened.
+            alert('No existe un correo asociado a esta pagina');
           });
         }
   }

@@ -44,11 +44,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/admin');
       })       
       .catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+        alert('Usuario/Contraseña equivocados.')
       });
     }
   }
