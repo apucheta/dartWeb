@@ -5,6 +5,7 @@ import { BoUsersComponent } from './backoffice/bo-users/bo-users.component';
 import { BoContenidosComponent } from './backoffice/bo-contenidos/bo-contenidos.component';
 import { BoProyectosComponent } from './backoffice/bo-proyectos/bo-proyectos.component';
 import { LoginComponent } from './backoffice/login/login.component';
+import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 
 const routes: Routes = [
 	{ 
@@ -17,6 +18,7 @@ const routes: Routes = [
 		]
 	},
 	{ path: 'login',pathMatch:'full', component: LoginComponent},
+	{ path: 'cambiopw',pathMatch:'full', component: CambioPwComponent},
 	{ path: '', pathMatch: 'full', component: BoHomeComponent},
   	{ path: '**', pathMatch: 'full', component: BoHomeComponent},
 ];

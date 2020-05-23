@@ -31,6 +31,7 @@ import { LoginComponent } from './backoffice/login/login.component';
 import { MaterialModule } from "../app/material.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
+import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 registerLocaleData(localeEs, 'es-Ar');
 
 @NgModule({
@@ -46,7 +47,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		BoContenidosComponent,
 		BoProyectosComponent,
 		BoHeaderComponent,
-		LoginComponent
+		LoginComponent,
+		CambioPwComponent
 	],
 	imports: [
 		BrowserModule,

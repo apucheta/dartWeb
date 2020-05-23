@@ -13,7 +13,6 @@ firebase.initializeApp(environment.firebaseConfig)
 })
 export class LoginComponent implements OnInit {
   public loginFormGroup: FormGroup;
-  public regFormGroup: FormGroup;
   
 
   constructor(
