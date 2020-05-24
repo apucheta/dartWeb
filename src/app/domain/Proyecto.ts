@@ -1,21 +1,22 @@
 export class Proyecto {
+    nombre: string;
     zona: string;
     barrio: string;
     area: string;
     lote: string;
-    planta: number;
+    plantas: number;
     superficie: ProyectoSuperficie;
     locales: ProyectoLocales;
 }
 
-class ProyectoLocales {
+class ProyectoSuperficie {
     cubierta: number;
     semicubierta: number;
     pileta: number;
     total: number;
 }
 
-class ProyectoSuperficie {
+class ProyectoLocales {
     estar: number;
     comedor: number;
     cocina: number;

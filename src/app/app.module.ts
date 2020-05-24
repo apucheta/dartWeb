@@ -31,6 +31,8 @@ import { LoginComponent } from './backoffice/login/login.component';
 import { MaterialModule } from "../app/material.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ProyectoModalComponent } from './backoffice/bo-proyectos/modales/proyecto-modal/proyecto-modal.component';
+
 registerLocaleData(localeEs, 'es-Ar');
 
 @NgModule({
@@ -46,7 +48,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		BoContenidosComponent,
 		BoProyectosComponent,
 		BoHeaderComponent,
-		LoginComponent
+		LoginComponent,
+		ProyectoModalComponent
 	],
 	imports: [
 		BrowserModule,
@@ -74,6 +77,9 @@ registerLocaleData(localeEs, 'es-Ar');
 		ContenidoService,
 		ProyectosService
 	],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	entryComponents: [
+		ProyectoModalComponent
+	]
 })
 export class AppModule { }
