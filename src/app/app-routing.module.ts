@@ -6,6 +6,7 @@ import { BoContenidosComponent } from './backoffice/bo-contenidos/bo-contenidos.
 import { BoProyectosComponent } from './backoffice/bo-proyectos/bo-proyectos.component';
 import { LoginComponent } from './backoffice/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 
 const routes: Routes = [
 	{ 
@@ -19,7 +20,8 @@ const routes: Routes = [
 	},
 	{ path: 'login',pathMatch:'full', component: LoginComponent},
 	{ path: '', pathMatch: 'full', component: HomeComponent},
-  	{ path: '**', pathMatch: 'full', component: BoHomeComponent},
+	{ path: 'cambiopw',pathMatch:'full', component: CambioPwComponent},
+  	{ path: '**', pathMatch: 'full', component: LoginComponent},
 ];
 
 @NgModule({

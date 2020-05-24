@@ -32,6 +32,7 @@ import { MaterialModule } from "../app/material.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ProyectoModalComponent } from './backoffice/bo-proyectos/modales/proyecto-modal/proyecto-modal.component';
+import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -49,7 +50,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		BoProyectosComponent,
 		BoHeaderComponent,
 		LoginComponent,
-		ProyectoModalComponent
+		ProyectoModalComponent,
+		CambioPwComponent
 	],
 	imports: [
 		BrowserModule,
