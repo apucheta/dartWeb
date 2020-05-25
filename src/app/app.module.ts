@@ -37,6 +37,7 @@ import { ContenidoModalComponent } from './backoffice/bo-contenidos/modales/cont
 import { GaleriaComponent } from './backoffice/bo-proyectos/modales/galeria/galeria.component';
 import { DropZoneDirective } from './directives/drop-zone.directive';
 import { GaleriaUploadTaskComponent } from './backoffice/bo-proyectos/modales/galeria-upload-task/galeria-upload-task.component';
+import { MarcasService } from './services/firebase/marcas.service';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -85,7 +86,8 @@ registerLocaleData(localeEs, 'es-Ar');
 	],
 	providers: [
 		ContenidoService,
-		ProyectosService
+		ProyectosService,
+		MarcasService
 	],
 	bootstrap: [AppComponent],
 	entryComponents: [
