@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Contenido } from 'src/app/domain/contenido';
 
 @Injectable({
 	providedIn: 'root'
@@ -39,5 +40,25 @@ export class ContenidoService {
 	*/
 	obtenerContenido(nombreContenido: string) {
 		return this.firestore.collection('Contenidos').doc(nombreContenido).snapshotChanges();
+	}
+
+	guardarContenido(contenido: Contenido) {
+		return this.firestore.collection('Contenidos').doc(contenido.seccion).set({ text: contenido.text, titulo: contenido.titulo });
+	}
+
+	eliminarContenido(Seccion: string) {		
+		return this.firestore.collection('Contenidos').doc(Seccion).delete();
+	}
+
+	guardarSeccionEnContenido(seccion: string): void {
+		this.firestore.collection('Contenidos').doc(seccion);
+	}
+
+	guardarSeccion(Seccion: string) {
+		this.guardarSeccionEnContenido(Seccion);
+		return this.firestore.collection('Secciones').doc(Seccion).set({ descripcion: Seccion });
+	}
+	obtenerSecciones() {
+		return this.firestore.collection('Secciones').snapshotChanges();
 	}
 }

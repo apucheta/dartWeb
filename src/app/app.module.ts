@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculoComponent } from './pages/calculo/calculo.component';
@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ProyectoModalComponent } from './backoffice/bo-proyectos/modales/proyecto-modal/proyecto-modal.component';
 import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
+import { ContenidoModalComponent } from './backoffice/bo-contenidos/modales/contenido-modal/contenido-modal.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -51,7 +52,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		BoHeaderComponent,
 		LoginComponent,
 		ProyectoModalComponent,
-		CambioPwComponent
+		CambioPwComponent,
+		ContenidoModalComponent
 	],
 	imports: [
 		BrowserModule,
@@ -81,7 +83,8 @@ registerLocaleData(localeEs, 'es-Ar');
 	],
 	bootstrap: [AppComponent],
 	entryComponents: [
-		ProyectoModalComponent
+		ProyectoModalComponent,
+		ContenidoModalComponent
 	]
 })
 export class AppModule { }
