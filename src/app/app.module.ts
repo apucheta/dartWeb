@@ -34,6 +34,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ProyectoModalComponent } from './backoffice/bo-proyectos/modales/proyecto-modal/proyecto-modal.component';
 import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 import { ContenidoModalComponent } from './backoffice/bo-contenidos/modales/contenido-modal/contenido-modal.component';
+import { GaleriaComponent } from './backoffice/bo-proyectos/modales/galeria/galeria.component';
+import { DropZoneDirective } from './directives/drop-zone.directive';
+import { GaleriaUploadTaskComponent } from './backoffice/bo-proyectos/modales/galeria-upload-task/galeria-upload-task.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -53,7 +56,10 @@ registerLocaleData(localeEs, 'es-Ar');
 		LoginComponent,
 		ProyectoModalComponent,
 		CambioPwComponent,
-		ContenidoModalComponent
+		ContenidoModalComponent,
+		GaleriaComponent,
+		DropZoneDirective,
+		GaleriaUploadTaskComponent
 	],
 	imports: [
 		BrowserModule,
@@ -84,7 +90,8 @@ registerLocaleData(localeEs, 'es-Ar');
 	bootstrap: [AppComponent],
 	entryComponents: [
 		ProyectoModalComponent,
-		ContenidoModalComponent
+		ContenidoModalComponent,
+		GaleriaComponent
 	]
 })
 export class AppModule { }

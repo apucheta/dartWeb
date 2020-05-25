@@ -29,6 +29,7 @@
 								<td>{{ proyecto.obraData.area }}</td>
 								<td>{{ proyecto.obraData.lote }}</td>
 								<td class="text-center">
+									<i class="fa fa-picture-o mr-3" title="Ver imágenes del proyecto" (click)="abrirGaleria(proyecto)"></i>
 									<i class="fa fa-pencil mr-3" title="Editar" (click)="abrirProyectoModal(proyecto)"></i>
 									<i class="fa fa-trash" title="Eliminar" (click)="eliminarProyecto(proyecto)"></i>
 								</td>
