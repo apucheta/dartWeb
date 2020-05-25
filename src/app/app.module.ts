@@ -34,6 +34,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ProyectoModalComponent } from './backoffice/bo-proyectos/modales/proyecto-modal/proyecto-modal.component';
 import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 import { ContenidoModalComponent } from './backoffice/bo-contenidos/modales/contenido-modal/contenido-modal.component';
+import { MarcasService } from './services/firebase/marcas.service';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -79,7 +80,8 @@ registerLocaleData(localeEs, 'es-Ar');
 	],
 	providers: [
 		ContenidoService,
-		ProyectosService
+		ProyectosService,
+		MarcasService
 	],
 	bootstrap: [AppComponent],
 	entryComponents: [
