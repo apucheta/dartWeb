@@ -34,6 +34,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ProyectoModalComponent } from './backoffice/bo-proyectos/modales/proyecto-modal/proyecto-modal.component';
 import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 import { ContenidoModalComponent } from './backoffice/bo-contenidos/modales/contenido-modal/contenido-modal.component';
+import { GaleriaComponent } from './backoffice/bo-proyectos/modales/galeria/galeria.component';
+import { DropZoneDirective } from './directives/drop-zone.directive';
+import { GaleriaUploadTaskComponent } from './backoffice/bo-proyectos/modales/galeria-upload-task/galeria-upload-task.component';
 import { MarcasService } from './services/firebase/marcas.service';
 import { BoMaterialesComponent } from './backoffice/bo-materiales/bo-materiales.component';
 import { MaterialesModalComponent } from './backoffice/bo-materiales/materiales-modal/materiales-modal.component';
@@ -58,7 +61,13 @@ registerLocaleData(localeEs, 'es-Ar');
 		ProyectoModalComponent,
 		CambioPwComponent,
 		ContenidoModalComponent,
+<<<<<<< HEAD
 		MaterialesModalComponent
+=======
+		GaleriaComponent,
+		DropZoneDirective,
+		GaleriaUploadTaskComponent
+>>>>>>> 2b706df80ac3eea5e6e7d0975b26491dba0e502a
 	],
 	imports: [
 		BrowserModule,
@@ -91,7 +100,11 @@ registerLocaleData(localeEs, 'es-Ar');
 	entryComponents: [
 		ProyectoModalComponent,
 		ContenidoModalComponent,
+<<<<<<< HEAD
 		MaterialesModalComponent
+=======
+		GaleriaComponent
+>>>>>>> 2b706df80ac3eea5e6e7d0975b26491dba0e502a
 	]
 })
 export class AppModule { }

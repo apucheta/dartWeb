@@ -3,6 +3,7 @@ import { ProyectosService } from 'src/app/services/firebase/proyectos.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ProyectoModalComponent } from './modales/proyecto-modal/proyecto-modal.component';
 import Swal from 'sweetalert2';
+import { GaleriaComponent } from './modales/galeria/galeria.component';
 
 @Component({
 	selector: 'app-bo-proyectos',
@@ -82,4 +83,13 @@ export class BoProyectosComponent implements OnInit {
 		});
 	}
 
+	abrirGaleria(proyecto: any) {
+		this.modalReference = this.modalService.open(GaleriaComponent, {
+			centered: true,
+			size: "lg"
+		});
+
+		this.modalReference.componentInstance.modalReference = this.modalReference;
+		this.modalReference.componentInstance.proyecto = proyecto;
+	}
 }
