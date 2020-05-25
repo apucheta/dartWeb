@@ -35,6 +35,8 @@ import { ProyectoModalComponent } from './backoffice/bo-proyectos/modales/proyec
 import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 import { ContenidoModalComponent } from './backoffice/bo-contenidos/modales/contenido-modal/contenido-modal.component';
 import { MarcasService } from './services/firebase/marcas.service';
+import { BoMaterialesComponent } from './backoffice/bo-materiales/bo-materiales.component';
+import { MaterialesModalComponent } from './backoffice/bo-materiales/materiales-modal/materiales-modal.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -51,10 +53,12 @@ registerLocaleData(localeEs, 'es-Ar');
 		BoContenidosComponent,
 		BoProyectosComponent,
 		BoHeaderComponent,
+		BoMaterialesComponent,
 		LoginComponent,
 		ProyectoModalComponent,
 		CambioPwComponent,
-		ContenidoModalComponent
+		ContenidoModalComponent,
+		MaterialesModalComponent
 	],
 	imports: [
 		BrowserModule,
@@ -86,7 +90,8 @@ registerLocaleData(localeEs, 'es-Ar');
 	bootstrap: [AppComponent],
 	entryComponents: [
 		ProyectoModalComponent,
-		ContenidoModalComponent
+		ContenidoModalComponent,
+		MaterialesModalComponent
 	]
 })
 export class AppModule { }
