@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { firestore } from 'firebase';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Proyecto } from 'src/app/domain/Proyecto';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
 	providedIn: 'root'
@@ -9,7 +9,8 @@ import { Proyecto } from 'src/app/domain/Proyecto';
 export class ProyectosService {
 
 	constructor(
-		private firestore: AngularFirestore
+		private firestore: AngularFirestore,
+		private firestorage: AngularFireStorage
 	) { }
 
 	/* Obtiene el contenido de un proyecto específic.
@@ -40,6 +41,20 @@ export class ProyectosService {
 
 	eliminarProyecto(proyectoId: string, zona: string) {
 		return this.firestore.collection('Proyectos').doc(zona).collection('Obras').doc(proyectoId).delete();
+	}
+
+	eliminarImagenes(proyectoNombre){
+		let storageReference = this.firestorage.ref(proyectoNombre);
+		
+		storageReference.listAll().subscribe(_response => {
+			if (_response.items.length > 0) {
+				_response.items.forEach(_imagenes => {
+					let path = `${proyectoNombre}/${_imagenes.name}`;
+					let storageReference = this.firestorage.ref(path);
+					storageReference.delete()
+				});
+			}
+		});
 	}
 
 	guardarZona(zona: string) {

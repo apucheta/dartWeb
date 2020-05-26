@@ -4,6 +4,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ProyectoModalComponent } from './modales/proyecto-modal/proyecto-modal.component';
 import Swal from 'sweetalert2';
 import { GaleriaComponent } from './modales/galeria/galeria.component';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
 	selector: 'app-bo-proyectos',
@@ -17,7 +18,8 @@ export class BoProyectosComponent implements OnInit {
 
 	constructor(
 		private proyectoService: ProyectosService,
-		private modalService: NgbModal
+		private modalService: NgbModal,
+		private firestorage: AngularFireStorage
 	) { }
 
 	ngOnInit(): void {
@@ -78,6 +80,7 @@ export class BoProyectosComponent implements OnInit {
 		}).then((result) => {
 			if (result.value) {
 				this.proyectoService.eliminarProyecto(proyecto.id, proyecto.obraData.zona);
+				this.proyectoService.eliminarImagenes(proyecto.obraData.nombre);
 				this.obtenerProyectos();
 			};
 		});

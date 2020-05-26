@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AngularFireUploadTask } from '@angular/fire/storage/task';
 import { Observable } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -15,6 +15,8 @@ export class GaleriaUploadTaskComponent implements OnInit {
 	@Input() file: File;
 	@Input() proyectoNombre: string;
 
+	@Output() imageUploaded: EventEmitter<any> = new EventEmitter<any>();
+
 	public uploadTask: AngularFireUploadTask;
 	public percentage: Observable<number>;
 	public snapshot: Observable<any>;
@@ -30,14 +32,6 @@ export class GaleriaUploadTaskComponent implements OnInit {
 	}
 
 	startUpload() {
-		const extension = this.file.type.split('/')[0];
-		
-		// Valida que sean imágenes
-		if (extension != "image") {
-			Swal.fire("Error", "Disculpe solo se permite subir imágenes", "error");
-			return;
-		}
-
 		const path = `${this.proyectoNombre}/${new Date().getTime()}_${this.file.name}`;
 		const ref = this.storage.ref(path);
 
@@ -49,6 +43,7 @@ export class GaleriaUploadTaskComponent implements OnInit {
 		this.snapshot = this.uploadTask.snapshotChanges().pipe(
 			finalize( async() => {
 				this.downloadUrl = await ref.getDownloadURL().toPromise();
+				this.imageUploaded.emit();
 			})
 		);
 	}

@@ -1,11 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from "@angular/fire/storage";
 import { Observable } from 'rxjs';
-import Swal from 'sweetalert2';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { finalize, tap } from "rxjs/operators";
-import { AngularFirestore } from '@angular/fire/firestore';
-import { async } from '@angular/core/testing';
+import { GaleriaGridComponent } from './galeria-grid/galeria-grid.component';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-galeria',
@@ -16,6 +14,8 @@ export class GaleriaComponent implements OnInit {
 	@Input() modalReference: NgbModalRef;
 	@Input() proyecto: any;
 
+	@ViewChild(GaleriaGridComponent) grid: GaleriaGridComponent;
+
 	public modalTitle: string;
 	public uploadTask: AngularFireUploadTask;
 	public porcentaje: Observable<number>;
@@ -25,8 +25,7 @@ export class GaleriaComponent implements OnInit {
 	public isHovering: boolean;
 
 	constructor(
-		private storage: AngularFireStorage,
-		private firestore: AngularFirestore
+		private storage: AngularFireStorage
 	) { }
 
 	ngOnInit(): void {
@@ -42,12 +41,24 @@ export class GaleriaComponent implements OnInit {
 
 	onDrop(files: FileList) {
 		for (let i = 0; i < files.length; i++) {
-			this.files.push(files.item(i));
+			const extension = files[i].type.split('/')[0];
+		
+			// Valida que sean imágenes
+			if (extension != "image") {
+				Swal.fire("Error", "Disculpe solo se permite subir imágenes", "error");
+				return;
+			} else {
+				this.files.push(files.item(i));
+			}
 		}
 	}
 	
 	cerrarModal() {
 		this.modalReference.close();
+	}
+
+	actualizarGaleria() {
+		this.grid.obtenerImagenes();
 	}
 
 }

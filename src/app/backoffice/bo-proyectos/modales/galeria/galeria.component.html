@@ -3,11 +3,7 @@
     <button type="button" class="close" aria-hidden="true" (click)="cerrarModal()">×</button>
 </div>
 <div class="modal-body">
-    <div class="row">
-        <div class="col-12">
-            
-        </div>
-    </div>
+    <app-galeria-grid [proyectoNombre]="proyecto.obraData.nombre"></app-galeria-grid>
     <div class="row">
         <div class="col-12">
             <div class="dropzone" appDropZone
@@ -26,7 +22,10 @@
     </div>
     <div class="row">
         <div class="col-4" *ngFor="let file of files">
-            <app-galeria-upload-task [file]="file" [proyectoNombre]="proyecto.obraData.nombre"></app-galeria-upload-task>
+            <app-galeria-upload-task 
+                [file]="file" 
+                [proyectoNombre]="proyecto.obraData.nombre"
+                (imageUploaded)="actualizarGaleria()"></app-galeria-upload-task>
         </div>
     </div>
 </div>
