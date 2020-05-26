@@ -24,22 +24,16 @@ export class BoContenidosComponent implements OnInit {
 		this.obtenerContenidos();
 	}
 
-	obtenerContenidos() {
-		console.log('entre a obtenerContenidos');
-		
+	obtenerContenidos() {		
 		this.contenidos = new Array<any>();
 		this.contenidoService.obtenerContenidos().subscribe(response => {			
 			response.forEach(_contenido => {				
 				this.contenidos.push({
 					id: _contenido.payload.doc.id,
 					contenidosData: _contenido.payload.doc.data()
-				})
-				console.log(this.contenidos);
-				
+				})				
 			})
 		});
-		
-		
 	}
 
 	abrirModalTextos(contenido: any = null) {		

@@ -12,10 +12,10 @@ import Swal from 'sweetalert2'
 })
 export class ContenidoModalComponent implements OnInit {
   @Input() modalReference: NgbModalRef;
-	@Input() contenido: any;
+  @Input() contenido: any;
 
   public modalTitle: string;
-	public contenidoForm: FormGroup;
+  public contenidoForm: FormGroup;
   public isFormSubmitted: boolean = false;
   public secciones: Array<any> = [];
   

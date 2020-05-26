@@ -39,6 +39,8 @@ import { DropZoneDirective } from './directives/drop-zone.directive';
 import { GaleriaUploadTaskComponent } from './backoffice/bo-proyectos/modales/galeria-upload-task/galeria-upload-task.component';
 import { MarcasService } from './services/firebase/marcas.service';
 import { GaleriaGridComponent } from './backoffice/bo-proyectos/modales/galeria/galeria-grid/galeria-grid.component';
+import { BoMaterialesComponent } from './backoffice/bo-materiales/bo-materiales.component';
+import { MaterialesModalComponent } from './backoffice/bo-materiales/materiales-modal/materiales-modal.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -55,14 +57,17 @@ registerLocaleData(localeEs, 'es-Ar');
 		BoContenidosComponent,
 		BoProyectosComponent,
 		BoHeaderComponent,
+		BoMaterialesComponent,
 		LoginComponent,
 		ProyectoModalComponent,
 		CambioPwComponent,
 		ContenidoModalComponent,
+		MaterialesModalComponent,
 		GaleriaComponent,
 		DropZoneDirective,
 		GaleriaUploadTaskComponent,
-		GaleriaGridComponent
+		GaleriaGridComponent,
+		GaleriaUploadTaskComponent
 	],
 	imports: [
 		BrowserModule,
@@ -95,6 +100,7 @@ registerLocaleData(localeEs, 'es-Ar');
 	entryComponents: [
 		ProyectoModalComponent,
 		ContenidoModalComponent,
+		MaterialesModalComponent,
 		GaleriaComponent
 	]
 })

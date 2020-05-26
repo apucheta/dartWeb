@@ -8,6 +8,7 @@ import { LoginComponent } from './backoffice/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 import { MarcasComponent } from './pages/marcas/marcas.component';
+import { BoMaterialesComponent } from './backoffice/bo-materiales/bo-materiales.component';
 
 const routes: Routes = [
 	{ 
@@ -16,7 +17,8 @@ const routes: Routes = [
 		children: [
 			{ 'path': 'usuarios', component: BoUsersComponent },
 			{ 'path': 'contenidos', component: BoContenidosComponent },
-			{ 'path': 'proyectos', component: BoProyectosComponent }
+			{ 'path': 'proyectos', component: BoProyectosComponent },
+			{ 'path': 'materiales', component: BoMaterialesComponent },
 		]
 	},
 	{ path: 'login',pathMatch:'full', component: LoginComponent},
