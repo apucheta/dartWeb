@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 import { MarcasComponent } from './pages/marcas/marcas.component';
 import { BoMaterialesComponent } from './backoffice/bo-materiales/bo-materiales.component';
+import { BoMontosComponent } from './backoffice/bo-montos/bo-montos.component';
 
 const routes: Routes = [
 	{ 
@@ -19,6 +20,7 @@ const routes: Routes = [
 			{ 'path': 'contenidos', component: BoContenidosComponent },
 			{ 'path': 'proyectos', component: BoProyectosComponent },
 			{ 'path': 'materiales', component: BoMaterialesComponent },
+			{ 'path': 'montos', component: BoMontosComponent },
 		]
 	},
 	{ path: 'login',pathMatch:'full', component: LoginComponent},

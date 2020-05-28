@@ -41,6 +41,9 @@ import { MarcasService } from './services/firebase/marcas.service';
 import { GaleriaGridComponent } from './backoffice/bo-proyectos/modales/galeria/galeria-grid/galeria-grid.component';
 import { BoMaterialesComponent } from './backoffice/bo-materiales/bo-materiales.component';
 import { MaterialesModalComponent } from './backoffice/bo-materiales/materiales-modal/materiales-modal.component';
+import { MontosService } from './services/firebase/montos.service';
+import { BoMontosComponent } from './backoffice/bo-montos/bo-montos.component';
+import { MontoModalComponent } from './backoffice/bo-montos/modales/monto-modal/monto-modal.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -63,11 +66,13 @@ registerLocaleData(localeEs, 'es-Ar');
 		CambioPwComponent,
 		ContenidoModalComponent,
 		MaterialesModalComponent,
+		BoMontosComponent,
 		GaleriaComponent,
 		DropZoneDirective,
 		GaleriaUploadTaskComponent,
 		GaleriaGridComponent,
-		GaleriaUploadTaskComponent
+		GaleriaUploadTaskComponent,
+		MontoModalComponent
 	],
 	imports: [
 		BrowserModule,
@@ -94,13 +99,15 @@ registerLocaleData(localeEs, 'es-Ar');
 	providers: [
 		ContenidoService,
 		ProyectosService,
-		MarcasService
+		MarcasService,
+		MontosService
 	],
 	bootstrap: [AppComponent],
 	entryComponents: [
 		ProyectoModalComponent,
 		ContenidoModalComponent,
 		MaterialesModalComponent,
+		MontoModalComponent,
 		GaleriaComponent
 	]
 })
