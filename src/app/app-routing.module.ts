@@ -10,6 +10,7 @@ import { CambioPwComponent } from './backoffice/cambio-pw/cambio-pw.component';
 import { MarcasComponent } from './pages/marcas/marcas.component';
 import { BoMaterialesComponent } from './backoffice/bo-materiales/bo-materiales.component';
 import { BoMontosComponent } from './backoffice/bo-montos/bo-montos.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 const routes: Routes = [
 	{ 
@@ -21,7 +22,8 @@ const routes: Routes = [
 			{ 'path': 'proyectos', component: BoProyectosComponent },
 			{ 'path': 'materiales', component: BoMaterialesComponent },
 			{ 'path': 'montos', component: BoMontosComponent },
-		]
+		],
+		canActivate: [ AuthGuardService ]
 	},
 	{ path: 'login',pathMatch:'full', component: LoginComponent},
 	{ path: '', pathMatch: 'full', component: HomeComponent},

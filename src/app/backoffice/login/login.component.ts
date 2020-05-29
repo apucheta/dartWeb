@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'Usuario/contraseña invalidos'
+          text: 'Usuario/contraseña inválidos'
         })
       });
     }

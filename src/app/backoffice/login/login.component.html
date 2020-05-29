@@ -1,26 +1,26 @@
 <mat-card>
-  <mat-card-title>Login/Registro</mat-card-title>
-  <mat-card-content>
-    <mat-tab-group mat-align-tabs="center">
-      <mat-tab label="Login">
-          <form [formGroup]="loginFormGroup">
-            <div class="form-group">
-              <mat-label>Email</mat-label>
-              <div class="input-group mb-3">
-                <input type="email" matInput class="form-control" placeholder="email@email.com" formControlName="log_usuario" required>
-                <!--<mat-icon matSufix>alternate_email</mat-icon>-->
-              </div>
-            </div>
+	<div class="text-center">
+		<img mat-card-image src="assets/img/logo_2.png" alt="Diseñart Logo">
+	</div>
+	<mat-card-title>
+		Inicio de sesión
+	</mat-card-title>
+	<mat-card-content>
+		<form [formGroup]="loginFormGroup" class="mt-2">
+		<div class="form-group">
+			<mat-label>Email</mat-label>
+			<div class="input-group mb-3">
+				<input type="email" matInput class="form-control" placeholder="email@email.com" formControlName="log_usuario" required>
+			</div>
+		</div>
 
-            <div class="form-group">
-              <mat-label>Password</mat-label>
-              <div class="input-group mb-3">
-                <input type="password" matInput class="form-control" placeholder="Contraseña" formControlName="log_pw" required>
-              </div>
-            </div>
-            <button mat-raised-button color="primary" (click)="loginUsuario()">Login</button>
-          </form>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card-content>
+		<div class="form-group">
+			<mat-label>Password</mat-label>
+			<div class="input-group mb-3">
+				<input type="password" matInput class="form-control" placeholder="Contraseña" formControlName="log_pw" required>
+			</div>
+		</div>
+		<button mat-raised-button class="btn-disenart" (click)="loginUsuario()">Iniciar sesión</button>
+		</form>
+	</mat-card-content>
 </mat-card>

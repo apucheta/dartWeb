@@ -9,12 +9,16 @@ import { Router } from '@angular/router';
 export class BoHomeComponent implements OnInit {
 	public opened: boolean = true;
 	public sidebarMode: string = "push";
+	public isLoading: boolean = false;
 
 	constructor(
 		private router: Router
 	) { }
 
 	ngOnInit(): void {
+		setTimeout(() => {
+			this.isLoading = true;
+		}, 1000);
 	}
 
 	toggleSidebar() {
