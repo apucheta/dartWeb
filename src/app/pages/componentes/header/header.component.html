@@ -13,7 +13,8 @@
 					<li><a href="#galeria">Nuestros proyectos</a></li>
 					<li><a href="#calculaTuProyecto">Calculá tu proyecto</a></li>
 					<li><a href="#contacto">Contacto</a></li>
-					<li><a href="/login">Iniciar sesión</a></li>
+					<li><a href="/login" *ngIf="!isLogged">Iniciar sesión</a></li>
+					<li><a href="/admin" *ngIf="isLogged">Ir al panel de admistración</a></li>
 				</ul>
 			</div>
 		</div>

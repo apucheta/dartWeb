@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       firebase.auth().signInWithEmailAndPassword(this.loginForm.get('log_usuario').value, this.loginForm.get('log_pw').value)
       .then(success => {
         this.router.navigateByUrl('/admin');
+        localStorage.setItem('userLogged', "true");
       })       
       .catch(function(error) {
         Swal.fire({
