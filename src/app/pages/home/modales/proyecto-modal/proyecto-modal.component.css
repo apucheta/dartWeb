@@ -21,3 +21,11 @@
 .superficieLabel {
     font-size: 18px;
 }
+
+.img-thumbnail {
+    cursor: pointer;
+}
+
+.img-fluid {
+    cursor: zoom-in;
+}

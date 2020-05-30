@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { Proyecto } from 'src/app/domain/Proyecto';
+import { Lightbox, LightboxConfig } from 'ngx-lightbox';
 
 @Component({
 	selector: 'app-proyecto-modal',
@@ -9,11 +9,18 @@ import { Proyecto } from 'src/app/domain/Proyecto';
 })
 export class ProyectoInfoModalComponent implements OnInit {
 	@Input()  modalReference: NgbModalRef;
-	@Input() proyecto: Proyecto;
+	@Input() proyecto: any;
+	@Input() proyectoImagenes: any;
+	public currentImage: any;
+	public currentImageIndex: number;
 
-	constructor() { }
+	constructor(
+		private lightboxService: Lightbox,
+		private galleryConfig: LightboxConfig,
+	) { }
 
 	ngOnInit(): void {
+		this.currentImage = this.proyectoImagenes[0].src;
 	}
 
 	get tieneSuperficies() {
@@ -36,6 +43,23 @@ export class ProyectoInfoModalComponent implements OnInit {
 		)
 	}
 
+	cambiarImagen(imagenSrc: string, imagenIndex: number) {
+		this.currentImage = imagenSrc;
+		this.currentImageIndex = imagenIndex;
+	}
+
+	zoomImagen() {
+		this.galleryConfig.centerVertically = true;
+		this.galleryConfig.disableScrolling = true;
+		this.galleryConfig.alwaysShowNavOnTouchDevices = true;
+
+		this.lightboxService.open(this.proyectoImagenes, this.currentImageIndex);
+	}
+
+	close() {
+		this.lightboxService.close();
+	}
+	
 	cerrarModal() {
 		this.modalReference.close();
 	}

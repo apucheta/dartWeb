@@ -23,6 +23,7 @@ export class GaleriaComponent implements OnInit {
 	public descargaUrl: Observable<any>;
 	public files: File[] = [];
 	public isHovering: boolean;
+	private fileCount: number = 1;
 
 	constructor(
 		private storage: AngularFireStorage
@@ -58,7 +59,11 @@ export class GaleriaComponent implements OnInit {
 	}
 
 	actualizarGaleria() {
-		this.grid.obtenerImagenes();
+		if (this.fileCount == this.files.length) {
+			this.grid.obtenerImagenes()
+		} else {
+			this.fileCount++;
+		}
 	}
 
 }

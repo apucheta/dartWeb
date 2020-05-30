@@ -55,10 +55,11 @@ export class HomeComponent implements OnInit {
 								let imagenes: Array<any> = [];
 								_response.items.forEach(_imagenes => {
 									_imagenes.getDownloadURL().then(_url => {
+										let imagenNombre = _imagenes.name.split("_");
 										imagenes.push({
 											src: _url,
-											caption: obraData.nombre + " / " + _imagenes.name,
-											name: _imagenes.name
+											caption: "&copy; Diseñart Constructora. " + obraData.nombre,
+											name: imagenNombre[1]
 										});
 									});
 								});
@@ -157,5 +158,6 @@ export class HomeComponent implements OnInit {
 
 		this.modalReference.componentInstance.modalReference = this.modalReference;
 		this.modalReference.componentInstance.proyecto = proyecto.obraData;
+		this.modalReference.componentInstance.proyectoImagenes = proyecto.imagenes;
 	}
 }

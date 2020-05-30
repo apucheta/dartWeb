@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Lightbox, LightboxConfig } from 'ngx-lightbox';
 import Swal from 'sweetalert2';
 
