@@ -10,8 +10,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" formControlName="nombre">
+                        <label for="nombre">Nombre <span class="requiredLabel">* Campo obligatorio</span></label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" formControlName="nombre"  [ngClass]="{ 'is-invalid': isFormSubmitted && proyectoForm.get('nombre').errors }">
+                        <div *ngIf="isFormSubmitted && proyectoForm.get('nombre').errors" class="invalid-feedback">
+                            <span *ngIf="proyectoForm.get('nombre').errors.required">Este campo es obligatorio.</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -19,13 +22,16 @@
                 <div class="col-3">
                     <div class="form-group">
                         <div class="d-flex justify-content-between">
-                            <label for="zona">Zona</label>
-                            <i class="fa fa-plus-circle my-auto" title="Agregar zona" (click)="agregarZona()"></i>
+                            <label for="zona">Zona <span class="requiredLabel">* Campo obligatorio</span></label>
+                            <i class="fa fa-plus-circle my-auto" title="Agregar zona" (click)="agregarZona()" *ngIf="!isEdit"></i>
                         </div>
-                        <select name="zona" id="zona" class="form-control" formControlName="zona">
+                        <select name="zona" id="zona" class="form-control" formControlName="zona" [ngClass]="{ 'is-invalid': isFormSubmitted && proyectoForm.get('zona').errors }">
                             <option value="">Seleccione...</option>
                             <option *ngFor="let zona of zonas" value="{{ zona.id }}">{{ zona.data.descripcion }}</option>
                         </select>
+                        <div *ngIf="isFormSubmitted && proyectoForm.get('zona').errors" class="invalid-feedback">
+                            <span *ngIf="proyectoForm.get('zona').errors.required">Este campo es obligatorio.</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-3">

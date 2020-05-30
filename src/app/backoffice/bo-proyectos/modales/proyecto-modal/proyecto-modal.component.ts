@@ -20,6 +20,7 @@ export class ProyectoModalComponent implements OnInit {
 	public zonas: Array<any> = [];
 	public barrios: Array<any> = [];
 	public areas: Array<any> = [];
+	public isEdit: boolean = false;
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -32,8 +33,10 @@ export class ProyectoModalComponent implements OnInit {
 		this.obtenerZonas();
 		this.obtenerBarrios();
 		this.obtenerAreas();
-		if (this.proyecto)
+		if (this.proyecto) {
 			this.setProyectoData(this.proyecto.obraData)
+			this.isEdit = !this.isEdit;
+		}
 	}
 
 	initProyectoForm() {
@@ -93,6 +96,8 @@ export class ProyectoModalComponent implements OnInit {
 		this.proyectoForm.get('lavadero').setValue(proyecto.locales.lavadero);
 		this.proyectoForm.get('baulera').setValue(proyecto.locales.baulera);
 		this.proyectoForm.get('galeria').setValue(proyecto.locales.galeria);
+
+		this.proyectoForm.get('zona').disable();
 	}
 
 	guardarProyecto() {

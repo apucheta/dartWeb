@@ -28,3 +28,8 @@ legend {
     cursor: pointer;
     color: #B60E0E;
 }
+
+.requiredLabel {
+    color: #B60E0E;
+    font-size: 11px;
+}
