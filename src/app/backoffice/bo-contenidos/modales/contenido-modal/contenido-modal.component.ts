@@ -37,17 +37,15 @@ export class ContenidoModalComponent implements OnInit {
 
   initContenidoForm() {
 		this.contenidoForm = this.formBuilder.group({
-      'seccion': ['', Validators.required],
-			'titulo': [''],
+			'seccion':[''],
+      		'titulo': [''],
 			'texto': ['']
     });
   }
 
   obtenerSecciones() {
 		this.secciones = new Array<any>();
-		this.contenidoService.obtenerSecciones().subscribe(_response => {
-      
-      
+		this.contenidoService.obtenerSecciones().subscribe(_response => {      
 			this.secciones = [];
 			_response.forEach(_seccion => {
 				this.secciones.push({
@@ -86,8 +84,8 @@ export class ContenidoModalComponent implements OnInit {
 	}
   
   setContenidoData(contenido: any) {    
-    this.contenidoForm.get('seccion').setValue(contenido.id)
-		this.contenidoForm.get('titulo').setValue(contenido.contenidosData.titulo);
+	this.contenidoForm.get('seccion').setValue(contenido.contenidosData.seccion);
+	this.contenidoForm.get('titulo').setValue(contenido.contenidosData.titulo);
     this.contenidoForm.get('texto').setValue(contenido.contenidosData.text);
   }
 
@@ -100,17 +98,21 @@ export class ContenidoModalComponent implements OnInit {
 
 		if (this.contenidoForm.valid) {
 			let contenido = new Contenido;
-			contenido.titulo = this.contenidoForm.get('titulo').value;
 			contenido.seccion = this.contenidoForm.get('seccion').value;
+			contenido.titulo = this.contenidoForm.get('titulo').value;
 			contenido.text = this.contenidoForm.get('texto').value;
+			//console.log(contenido);
+			
 			
 
 			if (this.contenido) {
-				this.contenidoService.actualizarContenido(this.contenido.id, contenido).then(_response => {
+				this.contenidoService.actualizarContenido(contenido.seccion, contenido).then(_response => {
 					Swal.fire('Se ha actualizado el contenido.', 'El contenido de ' + contenido.seccion + ' se ha actualizado satisfactoriamente.', 'success');
 					this.modalReference.close();
 				}).catch(_error => {
 					Swal.fire('Se ha presentado un error inesperado.', 'El contenido de ' + contenido.seccion + ' no pudo ser actualizado debido a un error inesperado del sistema, por favor contacte con el administrador del sistema.', 'error');
+					
+					
 				})
 			} else {
 				this.contenidoService.guardarContenido(contenido).then(_response => {

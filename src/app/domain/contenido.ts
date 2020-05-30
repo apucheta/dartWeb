@@ -1,5 +1,5 @@
 export class Contenido {
-    seccion:string;
+    seccion: string;
     text: string;
     titulo: string;
 }

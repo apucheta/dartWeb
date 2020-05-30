@@ -6,20 +6,7 @@
 <div class="modal-body">
     <form [formGroup]="contenidoForm">
         <fieldset>
-            <div class="row">
-                <div class="col-3">
-                    <div class="form-group">
-                        <div class="d-flex justify-content-between">
-                            <label for="seccion">Seccion</label>
-                            <i class="fa fa-plus-circle my-auto" title="Agregar seccion" (click)="agregarSeccion()"></i>
-                        </div>
-                        <select name="seccion" id="seccion" class="form-control" formControlName="seccion">
-                            <option value="">Seleccione...</option>
-                            <option *ngFor="let seccion of secciones" value="{{ seccion.id }}">{{ seccion.data.descripcion }}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+
             <legend>Contenido</legend>
             <div class="row">
                 <div class="col-12">

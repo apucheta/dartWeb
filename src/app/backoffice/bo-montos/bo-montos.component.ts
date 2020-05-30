@@ -5,39 +5,39 @@ import Swal from 'sweetalert2';
 import { MontoModalComponent } from './modales/monto-modal/monto-modal.component';
 
 @Component({
-  selector: 'app-bo-montos',
-  templateUrl: './bo-montos.component.html',
-  styleUrls: ['./bo-montos.component.css']
+	selector: 'app-bo-montos',
+	templateUrl: './bo-montos.component.html',
+	styleUrls: ['./bo-montos.component.css']
 })
 export class BoMontosComponent implements OnInit {
 
-  	public breadcrumbs: Array<any> = [];
-  	public montos: Array<any> = [];
-  	private modalReference: NgbModalRef;
-	  
+	public breadcrumbs: Array<any> = [];
+	public montos: Array<any> = [];
+	private modalReference: NgbModalRef;
+
 	constructor(
-    	private montoService: MontosService,
-    	private modal: NgbModal
-  	) { }
+		private montoService: MontosService,
+		private modal: NgbModal
+	) { }
 
-  	ngOnInit(): void {
-    	this.breadcrumbs = [{"title": "Administración de Montos"}];
-    	this.obtenerMontos();
-  	}
+	ngOnInit(): void {
+		this.breadcrumbs = [{ "title": "Administración de Montos" }];
+		this.obtenerMontos();
+	}
 
-  	obtenerMontos() {		
+	obtenerMontos() {
 		this.montos = new Array<any>();
-		this.montoService.obtenerMontos().subscribe(response => {			
-			response.forEach(_monto => {				
+		this.montoService.obtenerMontos().subscribe(response => {
+			response.forEach(_monto => {
 				this.montos.push({
 					id: _monto.payload.doc.id,
 					montosData: _monto.payload.doc.data()
-				})				
-      		});
+				})
+			});
 		});
-  	}
-  
-  	abrirModalMontos(monto: any = null) {		
+	}
+
+	abrirModalMontos(monto: any = null) {
 		this.modalReference = this.modal.open(MontoModalComponent, {
 			centered: true,
 			size: "lg",
@@ -60,10 +60,10 @@ export class BoMontosComponent implements OnInit {
 
 		this.modalReference.result.then(_close => {
 			this.obtenerMontos();
-		}, _dismiss => {});
-  	}
-  
-  	eliminarMonto(monto: any) {
+		}, _dismiss => { });
+	}
+
+	eliminarMonto(monto: any) {
 		Swal.fire({
 			title: '¡Cuidado!',
 			icon: 'warning',
@@ -73,9 +73,9 @@ export class BoMontosComponent implements OnInit {
 			confirmButtonText: 'Sí'
 		}).then((result) => {
 			if (result.value) {
-				this.montoService.eliminarMonto(monto.id).then(()=> {
+				this.montoService.eliminarMonto(monto.id).then(() => {
 					this.obtenerMontos();
-				});				
+				});
 			};
 		});
 	}

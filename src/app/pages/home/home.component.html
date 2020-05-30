@@ -11,11 +11,7 @@
 			<div class="inner-container">
 				<h1 class="section-title text-uppercase">Nosotros</h1>
 				<p>
-					Diseñart es una empresa que se dedica hace más de diez años a la construcción de viviendas.<br><br>
-					Buscamos que nuestros clientes sean partícipes en los diseños y proyectos que le brindan nuestros profesionales con asesoramiento permanente en cada etapa de la obra, 
-					para que obtenga una casa a la medida de sus necesidades. 
-					Contamos con la excelente coordinación de equipos especializados en la construcción para brindar el mejor servicio y en el menor tiempo.<br><br>
-					Todos nuestros materiales son de primera calidad por lo que nuestros trabajos están garantizados.
+					{{nosotros}}
 				</p>
 			</div>
 		</div>
@@ -144,17 +140,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-2 col-md-4 col-sm-12">
-					<div class="form-group">
-						<label for="test">Descubierta</label>
-						<div class="input-group mb-3">
-							<input type="number" class="form-control" id="txt-descubierta" placeholder="Superficie" aria-label="Superficie en metros cuadrados" aria-describedby="txt-descubierta-append" formControlName="descubierta" (change)="calcularPresupuesto()">
-							<div class="input-group-append">
-								  <span class="input-group-text" id="txt-descubierta-append">m<sup>2</sup></span>
-							</div>
-						</div>
-					</div>
-				</div>
+
 				<div class="col-lg-2 col-sm-4 col-sm-12">
 					<div class="form-group">
 						<label for="test">Doble altura</label>
@@ -187,6 +173,7 @@
 			<div class="col-12 text-center text-uppercase mt-1">
 				<h4 class="section-title">Total</h4>
 				<h5>{{ presupuestoTotal | currency : 'USD' : 'symbol' : '1.2-2' : 'es-Ar' }}</h5>
+				<button class="btn btn-disenart" (click)="goToPresupuestos()">Presupuestos</button>
 			</div>
 		</div>
 	</section>

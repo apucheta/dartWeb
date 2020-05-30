@@ -22,7 +22,6 @@
 								<th>Categoria</th>
 								<th>Nombre</th>
 								<th>Marca</th>
-								<th>Precio unitario</th>
 								<th>Ficha tecnica</th>
 							</tr>
 						</thead>
@@ -31,7 +30,6 @@
                                 <td>{{ material.id }}</td>
                                 <td>{{ material.nombre }}</td>
                                 <td>{{ material.matData.Marca}}</td>
-                                <td>{{ material.matData.Precio | currency : 'USD' : 'symbol' : '1.2-2' : 'es-Ar' }}</td>
                                 <td> <a href="{{ material.matData.Ficha }}" target="_blank">Ver ficha tecnica</a></td>
 							</tr>
 						</tbody>

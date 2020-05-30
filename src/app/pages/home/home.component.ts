@@ -6,6 +6,9 @@ import Swal from 'sweetalert2';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ProyectoInfoModalComponent } from './modales/proyecto-modal/proyecto-modal.component';
+import { Router } from '@angular/router';
+import { MontosService } from 'src/app/services/firebase/montos.service';
+import { ContenidoService } from 'src/app/services/firebase/contenido.service';
 
 @Component({
 	selector: 'app-home',
@@ -13,12 +16,12 @@ import { ProyectoInfoModalComponent } from './modales/proyecto-modal/proyecto-mo
 	styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-	private valorCubierta: number = 100;
-	private valorSemiCubierta:number = 100;
-	private valorDescubierta: number = 355;
-	private valorPiscina: number = 250;
-	private valorDobleAltura: number = 300;
+	private interior: number ;
+	private semicubierta:number ;
+	private piscina: number;
+	private altura: number ;
 	private modalReference: NgbModalRef;
+	private montos:Array<any> = [];
 
 	public title = 'Dart | Diseño y arquitectura';
 	public presupuestoFormGroup: FormGroup;
@@ -26,6 +29,9 @@ export class HomeComponent implements OnInit {
 	public currentYear: number = new Date().getFullYear();
 	public galeria: Array<any> = [];
 	public proyectos: Array<any> = [];
+
+	private contenidos: Array<any> = [];
+	public nosotros: string;
 	
 	constructor(
 		private formBuilder: FormBuilder,
@@ -33,13 +39,18 @@ export class HomeComponent implements OnInit {
 		private galleryConfig: LightboxConfig,
 		private proyectoService: ProyectosService,
 		private firestorage: AngularFireStorage,
-		private modalService: NgbModal
+		private modalService: NgbModal,
+		private router: Router,
+		private montoService: MontosService,
+		private contenidoService: ContenidoService
 	) { }
 
 	ngOnInit() {
 		this.initPresupuestoForm();
 		//this.initGaleria();
 		this.obtenerProyectos();
+		this.obtenerMontos();
+		this.obtenerContenidos();
 	}
 
 	obtenerProyectos() {
@@ -106,12 +117,41 @@ export class HomeComponent implements OnInit {
 	close() {
 		this.lightboxService.close();
 	}
+	obtenerMontos() {
+		this.montos = new Array<any>();
+		this.montoService.obtenerMontos().subscribe(response => {
+			response.forEach(_monto => {
+				this.montos.push({
+					id: _monto.payload.doc.id,
+					montosData: _monto.payload.doc.data()	
+				})				
+			});
+			for (let clave of this.montos){
+				switch (clave.id) {
+					case 'interior':
+						this.interior = clave.montosData.valor;						
+						break;
+					case 'altura':
+						this.altura = clave.montosData.valor;
+						break;
+					case 'piscina':
+						this.piscina = clave.montosData.valor;
+						break;
+					case 'semicubierta':
+						this.semicubierta = clave.montosData.valor;
+						break;
+					default:
+						break;
+				}
+			}				
+		});
+
+	}
 
 	initPresupuestoForm() {
 		this.presupuestoFormGroup = this.formBuilder.group({
 			'cubierta': [''],
 			'semiCubierta': [''],
-			'descubierta': [''],
 			'dobleAltura': [''],
 			'piscina': ['']
 		});
@@ -129,25 +169,25 @@ export class HomeComponent implements OnInit {
 		let montoPiscina = 0;
 
 		if (this.presupuestoForm.get('cubierta').value != "")
-			montoCubierta = this.presupuestoForm.get('cubierta').value * this.valorCubierta;
+			montoCubierta = this.presupuestoForm.get('cubierta').value * this.interior;
 		
 		if (this.presupuestoForm.get('semiCubierta').value != "")
-			montoSemiCubierta = this.presupuestoForm.get('semiCubierta').value * this.valorSemiCubierta;
-		
-		if (this.presupuestoForm.get('descubierta').value != "")
-			montoDescubierta = this.presupuestoForm.get('descubierta').value * this.valorDescubierta;
+			montoSemiCubierta = this.presupuestoForm.get('semiCubierta').value * this.semicubierta;
 		
 		if (this.presupuestoForm.get('dobleAltura').value != "")
-			montoDobleAltura = this.presupuestoForm.get('dobleAltura').value * this.valorDobleAltura;
+			montoDobleAltura = this.presupuestoForm.get('dobleAltura').value * this.altura;
 		
 		if (this.presupuestoForm.get('piscina').value != "")
-			montoPiscina = this.presupuestoForm.get('piscina').value * this.valorPiscina;
+			montoPiscina = this.presupuestoForm.get('piscina').value * this.piscina;
 
 		this.presupuestoTotal = montoCubierta + montoSemiCubierta + montoDescubierta + montoDobleAltura + montoPiscina;
 	}
 
 	limpiarPresupuesto() {
 		this.presupuestoTotal = 0;
+	}
+	goToPresupuestos(){
+		this.router.navigateByUrl('/marcas');
 	}
 
 	abrirProyectoModal(proyecto: any) {
@@ -159,5 +199,25 @@ export class HomeComponent implements OnInit {
 		this.modalReference.componentInstance.modalReference = this.modalReference;
 		this.modalReference.componentInstance.proyecto = proyecto.obraData;
 		this.modalReference.componentInstance.proyectoImagenes = proyecto.imagenes;
+	}
+
+	obtenerContenidos() {		
+		this.contenidos = new Array<any>();
+		this.contenidoService.obtenerContenidos().subscribe(response => {			
+			response.forEach(_contenido => {				
+				this.contenidos.push({
+					id: _contenido.payload.doc.id,
+					contenidosData: _contenido.payload.doc.data()
+				})				
+			});
+			for (let clave of this.contenidos){
+						
+				switch (clave.id) {
+					case 'Nosotros':
+						this.nosotros = clave.contenidosData.text;						
+						break;
+				}
+			}				
+		});
 	}
 }

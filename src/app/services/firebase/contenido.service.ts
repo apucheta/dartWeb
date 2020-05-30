@@ -30,8 +30,8 @@ export class ContenidoService {
 		nombreContenido -> El nombre de la sección que se actualiza.
 		contenido -> Objeto que se edita (Nombre, Texto).
 	*/
-	actualizarContenido(nombreContenido: string, contenido: any) {
-		return this.firestore.collection('Contenidos').doc(nombreContenido).update(contenido);
+	actualizarContenido(nombreContenido: string, contenido: Contenido) {		
+		return this.firestore.collection('Contenidos').doc(nombreContenido).update({text: contenido.text, titulo: contenido.titulo});
 	}
 
 	/* Obtiene el contenido de una sección específica.
@@ -43,7 +43,7 @@ export class ContenidoService {
 	}
 
 	guardarContenido(contenido: Contenido) {
-		return this.firestore.collection('Contenidos').doc(contenido.seccion).set({ text: contenido.text, titulo: contenido.titulo });
+		return this.firestore.collection('Contenidos').doc(contenido.titulo).set({ text: contenido.text, titulo: contenido.titulo });
 	}
 
 	eliminarContenido(Seccion: string) {		
