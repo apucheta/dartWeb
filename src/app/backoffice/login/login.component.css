@@ -4,6 +4,11 @@ form {
 	font-family: 'Gilroy', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
+a {
+	text-decoration: none;
+	outline: none;
+}
+
 mat-card img {
 	width: 150px;
 }

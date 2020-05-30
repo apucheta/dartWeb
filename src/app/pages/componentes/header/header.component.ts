@@ -7,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 	public isMenuOpen: boolean = false;
+	public isLogged: boolean = false;
 
 	constructor() { }
 
 	ngOnInit(): void {
+		if (localStorage.getItem('userLogged') == "true") {
+			this.isLogged = true;
+		} else {
+			this.isLogged = false;
+		}
 	}
 
 	closeMenu() {

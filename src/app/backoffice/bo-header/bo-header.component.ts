@@ -20,6 +20,7 @@ export class BoHeaderComponent implements OnInit {
 
 	cerrarSesion() {
 		firebase.auth().signOut().then(_response => {
+			localStorage.setItem('userLogged', "false")
 			this.router.navigateByUrl('/login');
 		}, _error => {
 			Swal.fire('Error inesperado', 'Ha ocurrido un error inesperado en el servidor.\n Contacte al administrador del sistema.', "error")
