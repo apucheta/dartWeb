@@ -33,11 +33,6 @@
 							</div>
 							<p>Contamos con precios especiales para construcciones mayores a los 250m2.</p>
 						</div>
-						<!-- TODO: Implementar los modales y los listados para esto.
-						<div class="card-footer bg-transparent text-center border-0">
-							<button class="btn btn-disenart">¿Qué incluye?</button>
-						</div>
-						-->
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
@@ -49,11 +44,9 @@
 							</div>
 							<p>Comprende la estructura principal de la vivienda, desde los cimientos hasta la cubierta, con todos los servicios funcionando: luz, agua, calefacción y gas.</p>
 						</div>
-						<!-- TODO: Implementar los modales y los listados para esto.
 						<div class="card-footer bg-transparent text-center border-0">
-							<button class="btn btn-disenart">Nuestros materiales</button>
+							<button class="btn btn-disenart" (click)="goToPresupuestos()">Nuestros materiales</button>
 						</div>
-						-->
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6 mb-2">
@@ -118,7 +111,7 @@
 		</div>
 		<form [formGroup]="presupuestoFormGroup">
 			<div class="row mx-auto p-3">
-				<div class="col-lg-2 col-md-4 col-sm-12">
+				<div class="col-lg-3 offset-lg-3 col-md-4 offset-md-2 col-sm-12">
 					<div class="form-group">
 						<label for="test">Cubierta</label>
 						<div class="input-group mb-3">
@@ -128,8 +121,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-2 col-md-4 col-sm-12">
 					<div class="form-group">
 						<label for="test">Semicubierta</label>
 						<div class="input-group mb-3">
@@ -139,9 +130,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-lg-2 col-sm-4 col-sm-12">
 					<div class="form-group">
 						<label for="test">Doble altura</label>
 						<div class="input-group mb-3">
@@ -151,8 +139,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-2 col-md-4 col-sm-12">
 					<div class="form-group">
 						<label for="test">Piscina</label>
 						<div class="input-group mb-3">
@@ -162,20 +148,19 @@
 							</div>
 						</div>
 					</div>
+					<div class="calculate-btn">
+						<button class="btn btn-secondary mr-1" type="reset" (click)="limpiarPresupuesto()">Limpiar</button>
+						<button class="btn btn-disenart" (click)="calcularPresupuesto()" type="submit">Calcular</button>
+					</div>
 				</div>
-				<div class="col-lg-2 col-md-4 col-sm-12 calculate-btn">
-					<button class="btn btn-secondary mr-1" type="reset" (click)="limpiarPresupuesto()">Limpiar</button>
-					<button class="btn btn-disenart" (click)="calcularPresupuesto()" type="submit">Calcular</button>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="col-12 text-center text-uppercase mt-1">
+						<h4 class="section-title">Total</h4>
+						<h5>{{ presupuestoTotal | currency : 'USD' : 'symbol' : '1.2-2' : 'es-Ar' }}</h5>
+					</div>
 				</div>
 			</div>
 		</form>
-		<div class="row mx-auto">
-			<div class="col-12 text-center text-uppercase mt-1">
-				<h4 class="section-title">Total</h4>
-				<h5>{{ presupuestoTotal | currency : 'USD' : 'symbol' : '1.2-2' : 'es-Ar' }}</h5>
-				<button class="btn btn-disenart" (click)="goToPresupuestos()">Presupuestos</button>
-			</div>
-		</div>
 	</section>
 	<section class="contact-section" id="contacto">
 		<div class="row mx-auto">

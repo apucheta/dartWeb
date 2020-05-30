@@ -45,6 +45,7 @@ import { MontosService } from './services/firebase/montos.service';
 import { BoMontosComponent } from './backoffice/bo-montos/bo-montos.component';
 import { MontoModalComponent } from './backoffice/bo-montos/modales/monto-modal/monto-modal.component';
 import { ProyectoInfoModalComponent } from "./pages/home/modales/proyecto-modal/proyecto-modal.component";
+import { MarcasModalComponent } from './pages/home/modales/marcas-modal/marcas-modal.component';
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -74,7 +75,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		GaleriaGridComponent,
 		GaleriaUploadTaskComponent,
 		MontoModalComponent,
-		ProyectoInfoModalComponent
+		ProyectoInfoModalComponent,
+		MarcasModalComponent
 	],
 	imports: [
 		BrowserModule,
@@ -112,7 +114,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		MaterialesModalComponent,
 		MontoModalComponent,
 		GaleriaComponent,
-		ProyectoInfoModalComponent
+		ProyectoInfoModalComponent,
+		MarcasModalComponent
 	]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import { ProyectoInfoModalComponent } from './modales/proyecto-modal/proyecto-mo
 import { Router } from '@angular/router';
 import { MontosService } from 'src/app/services/firebase/montos.service';
 import { ContenidoService } from 'src/app/services/firebase/contenido.service';
+import { MarcasModalComponent } from './modales/marcas-modal/marcas-modal.component';
 
 @Component({
 	selector: 'app-home',
@@ -164,7 +165,6 @@ export class HomeComponent implements OnInit {
 	calcularPresupuesto() {
 		let montoCubierta = 0;
 		let montoSemiCubierta = 0;
-		let montoDescubierta = 0;
 		let montoDobleAltura = 0;
 		let montoPiscina = 0;
 
@@ -180,14 +180,20 @@ export class HomeComponent implements OnInit {
 		if (this.presupuestoForm.get('piscina').value != "")
 			montoPiscina = this.presupuestoForm.get('piscina').value * this.piscina;
 
-		this.presupuestoTotal = montoCubierta + montoSemiCubierta + montoDescubierta + montoDobleAltura + montoPiscina;
+		this.presupuestoTotal = montoCubierta + montoSemiCubierta + montoDobleAltura + montoPiscina;
 	}
 
 	limpiarPresupuesto() {
 		this.presupuestoTotal = 0;
 	}
+
 	goToPresupuestos(){
-		this.router.navigateByUrl('/marcas');
+		this.modalReference = this.modalService.open(MarcasModalComponent, {
+			size: "lg",
+			centered: true
+		});
+
+		this.modalReference.componentInstance.modalReference = this.modalReference;
 	}
 
 	abrirProyectoModal(proyecto: any) {
