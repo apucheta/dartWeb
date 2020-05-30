@@ -73,7 +73,8 @@
 .about-us p,
 .card-body p,
 .budget-section ::placeholder,
-.contact-info {
+.contact-info,
+.card {
 	font-family: 'Gilroy', Verdana, Geneva, Tahoma, sans-serif;
 }
 

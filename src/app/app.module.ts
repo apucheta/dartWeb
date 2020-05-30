@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { MarcasComponent } from './pages/marcas/marcas.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { registerLocaleData } from "@angular/common";
+import { registerLocaleData, CommonModule } from "@angular/common";
 import localeEs from "@angular/common/locales/es-AR";
 import { HeaderComponent } from './pages/componentes/header/header.component';
 import { FooterComponent } from './pages/componentes/footer/footer.component';
@@ -28,7 +28,7 @@ import { ContenidoService } from './services/firebase/contenido.service';
 import { ProyectosService } from './services/firebase/proyectos.service';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { LoginComponent } from './backoffice/login/login.component';
-import { MaterialModule } from "../app/material.module";
+import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ProyectoModalComponent } from './backoffice/bo-proyectos/modales/proyecto-modal/proyecto-modal.component';
@@ -44,6 +44,7 @@ import { MaterialesModalComponent } from './backoffice/bo-materiales/materiales-
 import { MontosService } from './services/firebase/montos.service';
 import { BoMontosComponent } from './backoffice/bo-montos/bo-montos.component';
 import { MontoModalComponent } from './backoffice/bo-montos/modales/monto-modal/monto-modal.component';
+import { ProyectoInfoModalComponent } from "./pages/home/modales/proyecto-modal/proyecto-modal.component";
 
 registerLocaleData(localeEs, 'es-Ar');
 
@@ -72,10 +73,12 @@ registerLocaleData(localeEs, 'es-Ar');
 		GaleriaUploadTaskComponent,
 		GaleriaGridComponent,
 		GaleriaUploadTaskComponent,
-		MontoModalComponent
+		MontoModalComponent,
+		ProyectoInfoModalComponent
 	],
 	imports: [
 		BrowserModule,
+		CommonModule,
 		AppRoutingModule,
 		RouterModule.forRoot([
 		{ path: '', component: HomeComponent },
@@ -108,7 +111,8 @@ registerLocaleData(localeEs, 'es-Ar');
 		ContenidoModalComponent,
 		MaterialesModalComponent,
 		MontoModalComponent,
-		GaleriaComponent
+		GaleriaComponent,
+		ProyectoInfoModalComponent
 	]
 })
 export class AppModule { }

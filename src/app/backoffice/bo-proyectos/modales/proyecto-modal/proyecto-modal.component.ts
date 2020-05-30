@@ -106,10 +106,10 @@ export class ProyectoModalComponent implements OnInit {
 			proyecto.area = this.proyectoForm.get('area').value;
 			proyecto.lote = this.proyectoForm.get('lote').value;
 			proyecto.superficie = {
-				cubierta: this.proyectoForm.get('cubierta').value,
-				semicubierta: this.proyectoForm.get('semicubierta').value,
-				pileta: this.proyectoForm.get('pileta').value,
-				total: this.proyectoForm.get('total').value
+				cubierta: this.proyectoForm.get('cubierta').value || 0,
+				semicubierta: this.proyectoForm.get('semicubierta').value || 0,
+				pileta: this.proyectoForm.get('pileta').value || 0,
+				total: this.proyectoForm.get('total').value || 0
 			}
 			proyecto.plantas = this.proyectoForm.get('plantas').value,
 			proyecto.locales = {
@@ -150,8 +150,8 @@ export class ProyectoModalComponent implements OnInit {
 	}
 
 	calcularTotal() {
-		let cubierta = parseInt(this.proyectoForm.get('cubierta').value);
-		let semicubierta = parseInt(this.proyectoForm.get('semicubierta').value);
+		let cubierta = parseFloat(this.proyectoForm.get('cubierta').value) || 0;
+		let semicubierta = parseFloat(this.proyectoForm.get('semicubierta').value) || 0;
 
 		this.proyectoForm.get('total').setValue(cubierta + semicubierta);
 	}

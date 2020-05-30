@@ -90,12 +90,27 @@
 	<section class="gallery-section" id="galeria">
 		<div class="row mx-auto">
 			<div class="col-12 text-center text-uppercase mt-3">
-				<h2 class="section-title">Nuestras casas</h2>
+				<h2 class="section-title">Nuestros proyectos</h2>
 			</div>
 		</div>
 		<div class="row mx-auto p-2">
-			<div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let image of galeria; let i=index">
-				<img [src]="image.src" (click)="abrirFoto(i)" class="img-thumbnail">
+			<div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let proyecto of proyectos">
+				<div class="card">
+					<img class="card-img-top" src="{{ proyecto.imagenes[0].src }}" alt="Imagen del proyecto" *ngIf="proyecto.imagenes.length > 0">
+					<div class="card-header">
+						{{ proyecto.obraData.nombre }}
+					</div>
+					<div class="card-body">
+						<ul>
+							<li><strong>Zona:</strong> {{ proyecto.obraData.zona }}</li>
+							<li *ngIf="proyecto.obraData.barrio"><strong>Barrio:</strong> {{ proyecto.obraData.barrio }}</li>
+							<li *ngIf="proyecto.obraData.area"><strong>Área:</strong> {{ proyecto.obraData.area }}</li>
+						</ul>
+					</div>
+					<div class="card-footer text-right">
+						<button class="btn btn-disenart" (click)="abrirProyectoModal(proyecto)">Ver más</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

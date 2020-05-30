@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { LightboxConfig, Lightbox } from 'ngx-lightbox';
+import { ProyectosService } from 'src/app/services/firebase/proyectos.service';
+import Swal from 'sweetalert2';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ProyectoInfoModalComponent } from './modales/proyecto-modal/proyecto-modal.component';
 
 @Component({
 	selector: 'app-home',
@@ -13,22 +18,69 @@ export class HomeComponent implements OnInit {
 	private valorDescubierta: number = 355;
 	private valorPiscina: number = 250;
 	private valorDobleAltura: number = 300;
+	private modalReference: NgbModalRef;
 
 	public title = 'Dart | Diseño y arquitectura';
 	public presupuestoFormGroup: FormGroup;
 	public presupuestoTotal: number = 0;
 	public currentYear: number = new Date().getFullYear();
 	public galeria: Array<any> = [];
+	public proyectos: Array<any> = [];
 	
 	constructor(
 		private formBuilder: FormBuilder,
 		private lightboxService: Lightbox,
-		private galleryConfig: LightboxConfig
+		private galleryConfig: LightboxConfig,
+		private proyectoService: ProyectosService,
+		private firestorage: AngularFireStorage,
+		private modalService: NgbModal
 	) { }
 
 	ngOnInit() {
 		this.initPresupuestoForm();
-		this.initGaleria();
+		//this.initGaleria();
+		this.obtenerProyectos();
+	}
+
+	obtenerProyectos() {
+		this.proyectos = new Array<any>();
+		this.proyectoService.obtenerProyectos().subscribe(response => {
+			response.forEach(proyecto => {
+				this.proyectoService.obtenerProyecto(proyecto.payload.doc.id).subscribe(_response => {
+					_response.forEach(_proyecto => {
+						let obraData = _proyecto.payload.doc.data();
+						let storageReference = this.firestorage.ref(obraData.nombre);
+						storageReference.listAll().subscribe(_response => {
+							if (_response.items.length > 0) {
+								let imagenes: Array<any> = [];
+								_response.items.forEach(_imagenes => {
+									_imagenes.getDownloadURL().then(_url => {
+										imagenes.push({
+											src: _url,
+											caption: obraData.nombre + " / " + _imagenes.name,
+											name: _imagenes.name
+										});
+									});
+								});
+								this.proyectos.push({
+									id: _proyecto.payload.doc.id,
+									obraData: _proyecto.payload.doc.data(),
+									imagenes: imagenes
+								});
+							} else {
+								this.proyectos.push({
+									id: _proyecto.payload.doc.id,
+									obraData: _proyecto.payload.doc.data(),
+									imagenes: []
+								});
+							}
+						}, _error => {
+							Swal.fire("Error inesperado", "Ocurrió un error inesperado obteniendo las imágenes. \n Contacte al administrador del sistema", "error");
+						});
+					});
+				}, _error => Swal.fire('Se ha presentado un error inesperado.', 'No se pudo obtener la información de los proyectos debido a un error inesperado del sistema. \n Por favor contacte con el administrador del sistema.', 'error'));
+			});
+		}, _error => Swal.fire('Se ha presentado un error inesperado.', 'No se pudo obtener la información de los proyectos debido a un error inesperado del sistema. \n Por favor contacte con el administrador del sistema.', 'error'));
 	}
 
 	initGaleria() {
@@ -95,5 +147,15 @@ export class HomeComponent implements OnInit {
 
 	limpiarPresupuesto() {
 		this.presupuestoTotal = 0;
+	}
+
+	abrirProyectoModal(proyecto: any) {
+		this.modalReference = this.modalService.open(ProyectoInfoModalComponent, {
+			centered: true,
+			size: "xl"
+		});
+
+		this.modalReference.componentInstance.modalReference = this.modalReference;
+		this.modalReference.componentInstance.proyecto = proyecto.obraData;
 	}
 }
